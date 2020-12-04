@@ -1,0 +1,22 @@
+{
+  "contacts": [
+    {
+      "id": 0,
+      "name": "thwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwinthwin",
+      "email": "ewrynr@gmail.co",
+      "phone": "09936456"
+    },
+    {
+      "id": 1,
+      "name": "Hello",
+      "email": "ewrynr@gmail.com",
+      "phone": "+0912345"
+    },
+    {
+      "id": 2,
+      "name": "hay",
+      "email": "mgs@gmail.com",
+      "phone": "0924680"
+    }
+  ]
+}

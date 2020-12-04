@@ -1,0 +1,14 @@
+<!-- Modal Title -->
+<div class="modal-header">
+	<h4 class="modal-title">{{title}}</h4>
+	<button type="button" class="close" (click)="onCancel()">&times;</button>
+</div>
+
+<!-- Modal iInformaton -->
+<div class="modal-body text-break">{{info}}</div>
+
+<!-- Modal Action -->
+<div class="modal-footer">
+	<button type="button" class="btn btn-danger" (click)="onConfirm()" *ngIf="isConfirmModal">Confirm</button>
+	<button type="button" class="btn btn-primary" (click)="onCancel()">{{closeBtnName}}</button>
+</div>

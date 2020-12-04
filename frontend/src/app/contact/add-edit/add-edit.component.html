@@ -1,0 +1,56 @@
+<div class="container">
+
+	<div class="card">
+		<div class="card-body">
+			<form #f="ngForm" (ngSubmit)="saveContact()">
+
+				<div class="form-group row required">
+					<label class="col-sm-2 text-right">Full Name</label>
+					<div class="col-sm-10">
+						<input type="text" name="name" #name="ngModel" [(ngModel)]="contact.name" class="form-control"
+							placeholder="Name" required>
+						<div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+							<div *ngIf="name.errors.required">Name is required.</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group row required mt-2">
+					<label class="col-sm-2 text-right">Email</label>
+					<div class="col-sm-10">
+
+						<input type="email" name="email" #email="ngModel" [(ngModel)]="contact.email"
+							class="form-control {{hasSameError('email')? 'btn-danger':''}}" placeholder="Email" required email>
+						<div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+							<div *ngIf="email.errors.required">Email is required.</div>
+							<div *ngIf="email.errors.email">Please, Enter valid email address.</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="form-group row required mt-2">
+					<label class="col-sm-2 text-right">Telephone</label>
+					<div class="col-sm-10">
+						<input type="text" name="phone" #phone="ngModel" [(ngModel)]="contact.phone"
+							class="form-control {{hasSameError('phone')? 'btn-danger':''}}" placeholder="Telephone" required
+							pattern="^\+?[0-9\uff10-\uff19]*">
+						<div *ngIf="phone.touched && phone.invalid" class="alert alert-danger">
+							<div *ngIf="phone.errors.required">Telephone is required.</div>
+							<div *ngIf="phone.errors.pattern">Please, Enter valid telephone number.</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="mt-2 float-right">
+					<button class="btn btn-light text-danger" type="button" (click)="cancel()"><i
+							class="fas fa-times mr-sm-2"></i>Cancel</button>
+					<button class="btn btn-success ml-sm-2" type="submit"
+						[disabled]="!f.form.valid || hasSameError('phone') || hasSameError('email')"><i
+							class="far fa-save mr-sm-2"></i>Save</button>
+				</div>
+
+			</form>
+		</div>
+	</div>
+
+</div>
