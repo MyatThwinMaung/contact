@@ -23,6 +23,7 @@ export class DialogComponent implements OnInit {
     this.bsModalRef.hide();
   }
 
+  // reply 200 to delete contact if user clicks confirm button
   onConfirm() {
     this.event.emit(200);
     this.bsModalRef.hide();

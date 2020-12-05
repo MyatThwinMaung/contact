@@ -33,13 +33,13 @@ export class AddEditComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.route.snapshot.params['contactId'];
     if (this.id) {
+      // get edit data by id
       this.contactService.find(this.id).subscribe((data: Contact) => {
         this.contact = data;
       }, error => {
         this.errorDialog("Error", error);
       });
     }
-
   }
 
   saveContact() {
@@ -61,7 +61,6 @@ export class AddEditComponent implements OnInit {
     }, error => {
       this.errorDialog("Error", error);
     })
-
   }
 
   createContact() {
@@ -81,9 +80,9 @@ export class AddEditComponent implements OnInit {
   }
 
   // checking input phone number or email already exists in contants
-  // dataType: phone or email
-  hasSameError(dataType) {
-    const sameIdx = this.contacts.findIndex(item => item[dataType] === this.contact[dataType]);
+  // dataName: phone or email
+  hasSameError(dataName) {
+    const sameIdx = this.contacts.findIndex(item => item[dataName] === this.contact[dataName]);
     return sameIdx > -1 && this.contact.id !== this.contacts[sameIdx].id;
   }
 
@@ -91,13 +90,9 @@ export class AddEditComponent implements OnInit {
     this.router.navigateByUrl('contact/list');
   }
 
+  // dialog to display error message
   errorDialog(errTitle, errInfo) {
-    const modalData = {
-      title: errTitle,
-      info: errInfo,
-      closeBtnName: "Ok"
-    };
-    this.bsModalRef = this.modalService.show(DialogComponent, Object.assign({}, { class: 'modal-dialog-centered', modalData }));
+    this.bsModalRef = this.modalService.show(DialogComponent, Object.assign({}, { class: 'modal-dialog-centered' }));
     this.bsModalRef.content.closeBtnName = "Ok";
     this.bsModalRef.content.title = errTitle;
     this.bsModalRef.content.info = errInfo;

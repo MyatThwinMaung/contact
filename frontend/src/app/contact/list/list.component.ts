@@ -14,9 +14,8 @@ import { Contact } from '../contact';
 export class ListComponent implements OnInit {
 
   contacts: Contact[] = [];
-  contactData: Contact[] = [];
+  contactData: Contact[] = []; // contacts to bind in table after searching
   searchText = '';
-  p = 1;
   bsModalRef: BsModalRef;
 
   constructor(
@@ -29,7 +28,6 @@ export class ListComponent implements OnInit {
     this.contactService.getAll().subscribe((data: any[]) => {
       this.contacts = data || [];
       this.searchContact();
-      console.log(this.contacts);
     }, error => {
       this.errorDialog("Error", error);
     })
@@ -39,20 +37,16 @@ export class ListComponent implements OnInit {
     this.contactService.delete(id).subscribe(res => {
       this.contacts = this.contacts.filter(contact => contact.id !== id);
       this.searchContact();
-      console.log('Post deleted successfully!');
-      console.log(this.contacts);
     }, error => {
       this.errorDialog("Error", error);
     })
   }
 
   editContact(id) {
-    console.log('Id', id);
     this.router.navigate(['contact/edit/', id]);
   }
 
   searchContact() {
-    console.log('search', this.searchText);
     if (this.searchText === '') {
       this.contactData = this.contacts;
       return;
@@ -63,17 +57,16 @@ export class ListComponent implements OnInit {
       contact.phone.toLowerCase().includes(smallSearchText) ||
       contact.email.toLowerCase().includes(smallSearchText)
     );
-    console.log(this.contactData);
   }
 
+  // dialog to confirm deletion
   confirmDelete(contact) {
     this.bsModalRef = this.modalService.show(DialogComponent, Object.assign({}, { class: 'modal-dialog-centered' }));
     this.bsModalRef.content.isConfirmModal = true;
-    this.bsModalRef.content.closeBtnName = "Close";
+    this.bsModalRef.content.closeBtnName = "Cancel";
     this.bsModalRef.content.title = "Delete Confirmation";
     this.bsModalRef.content.info = "Are you sure you want to delete " + contact.name + " ?";
     this.bsModalRef.content.event.subscribe(res => {
-      console.log('res', res);
       if (res === 200) {
         this.deleteContact(contact.id);
       }
@@ -82,6 +75,7 @@ export class ListComponent implements OnInit {
     });
   }
 
+  // dialog to display error message
   errorDialog(errTitle, errInfo) {
     this.bsModalRef = this.modalService.show(DialogComponent, Object.assign({}, { class: 'modal-dialog-centered' }));
     this.bsModalRef.content.closeBtnName = "Ok";

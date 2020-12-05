@@ -1,0 +1,4 @@
+/* show required field in label of inputs */
+.required label:after {
+  content:"*";color:red;
+}
