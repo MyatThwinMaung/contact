@@ -1,0 +1,42 @@
+<ul class="pagination m-0 d-none d-md-flex" *ngIf="total > 0">
+	<li class="page-item" (click)="onPage(1)" [disabled]="current===1">
+		<span class="page-link">
+			<<< /span>
+	</li>
+	<li class="page-item" (click)="onPrev()" [disabled]="current===1">
+		<span class="page-link">
+			<< /span>
+	</li>
+	<li class="page-item {{pageNum.toString()===current.toString()? 'active':''}}" *ngFor="let pageNum of getPages()"
+		(click)="onPage(pageNum)">
+		<span class="page-link">{{pageNum}}</span>
+	</li>
+	<li class="page-item" (click)="onNext()" [disabled]="current.toString()===pagesToShow.toString()">
+		<span class="page-link">></span>
+	</li>
+	<li class="page-item" (click)="onPage(pagesToShow)" [disabled]="current.toString()===pagesToShow.toString()">
+		<span class="page-link">>></span>
+	</li>
+</ul>
+
+<!-- responsive design -->
+<ul class="pagination pagination-sm d-md-none m-0" *ngIf="total > 0">
+	<li class="page-item" (click)="onPage(1)" [disabled]="current===1">
+		<span class="page-link">
+			<<< /span>
+	</li>
+	<li class="page-item" (click)="onPrev()" [disabled]="current===1">
+		<span class="page-link">
+			<< /span>
+	</li>
+	<li class="page-item {{pageNum.toString()===current.toString()? 'active':''}}" *ngFor="let pageNum of getPages()"
+		(click)="onPage(pageNum)">
+		<span class="page-link">{{pageNum}}</span>
+	</li>
+	<li class="page-item" (click)="onNext()" [disabled]="current.toString()===pagesToShow.toString()">
+		<span class="page-link">></span>
+	</li>
+	<li class="page-item" (click)="onPage(pagesToShow)" [disabled]="current.toString()===pagesToShow.toString()">
+		<span class="page-link">>></span>
+	</li>
+</ul>
