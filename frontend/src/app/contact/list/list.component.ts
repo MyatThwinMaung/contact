@@ -120,7 +120,7 @@ export class ListComponent implements OnInit {
   }
 
   // change limit of pagination
-  changeLimit(event) {
+  changeLimit() {
     this.current = 1;
     this.getDatabyPageIndex();
   }

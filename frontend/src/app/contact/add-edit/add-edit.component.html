@@ -1,60 +1,60 @@
 <div class="container">
-	<div class="card">
-		<div class="card-body">
-			<form #contactForm="ngForm" (ngSubmit)="saveContact()">
-				<!-- input name block -->
-				<div class="form-group row required">
-					<label class="col-md-2 text-md-right">Full Name</label>
-					<div class="col-md-10">
-						<input type="text" name="name" #name="ngModel" [(ngModel)]="contact.name" class="form-control"
-							placeholder="Name" required>
-						<div *ngIf="name.touched && name.invalid" class="alert alert-danger">
-							<div *ngIf="name.errors.required">Name is required.</div>
-						</div>
-					</div>
-				</div>
-				<!-- input email block -->
-				<div class="form-group row required mt-2">
-					<label class="col-md-2 text-md-right">Email</label>
-					<div class="col-md-10">
-						<input type="email" name="email" #email="ngModel" [(ngModel)]="contact.email"
-							class="form-control {{hasSameError('email')? 'btn-danger':''}}" placeholder="Email" required email>
-						<div *ngIf="email.touched && email.invalid" class="alert alert-danger">
-							<div *ngIf="email.errors.required">Email is required.</div>
-							<div *ngIf="email.errors.email">Please, Enter valid email address.</div>
-						</div>
-					</div>
-				</div>
-				<!-- input telephone block -->
-				<div class="form-group row required mt-2">
-					<label class="col-md-2 text-md-right">Telephone</label>
-					<div class="col-md-10">
-						<input type="text" name="phone" #phone="ngModel" [(ngModel)]="contact.phone"
-							class="form-control {{hasSameError('phone')? 'btn-danger':''}}" placeholder="Telephone" required
-							pattern="^\+?[0-9\uff10-\uff19]*">
-						<div *ngIf="phone.touched && phone.invalid" class="alert alert-danger">
-							<div *ngIf="phone.errors.required">Telephone is required.</div>
-							<div *ngIf="phone.errors.pattern">Please, Enter valid telephone number.</div>
-						</div>
-					</div>
-				</div>
-				<!-- calcel and save button -->
-				<div class="mt-2 float-right d-none d-md-block">
-					<button class="btn btn-light text-danger" type="button" (click)="cancel()"><i
-							class="fas fa-times mr-md-2"></i>Cancel</button>
-					<button class="btn btn-success ml-2" type="submit"
-						[disabled]="!contactForm.form.valid || hasSameError('phone') || hasSameError('email')"><i
-							class="far fa-save mr-md-2"></i>Save</button>
-				</div>
-				<!-- responsive design for cancel and save button -->
-				<div class="mt-2 text-center d-md-none">
-					<button class="btn btn-sm btn-light text-danger" type="button" (click)="cancel()"><i
-							class="fas fa-times mr-1"></i>Cancel</button>
-					<button class="btn btn-sm btn-success ml-2" type="submit"
-						[disabled]="!contactForm.form.valid || hasSameError('phone') || hasSameError('email')"><i
-							class="far fa-save mr-1"></i>Save</button>
-				</div>
-			</form>
-		</div>
-	</div>
+  <div class="card">
+    <div class="card-body">
+      <form #contactForm="ngForm" (ngSubmit)="saveContact()">
+        <!-- input name block -->
+        <div class="form-group row required">
+          <label class="col-md-2 text-md-right">Full Name</label>
+          <div class="col-md-10">
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="contact.name" class="form-control"
+              placeholder="Name" required>
+            <div *ngIf="name.touched && name.invalid" class="alert alert-danger">
+              <div *ngIf="name.errors.required">Name is required.</div>
+            </div>
+          </div>
+        </div>
+        <!-- input email block -->
+        <div class="form-group row required mt-2">
+          <label class="col-md-2 text-md-right">Email</label>
+          <div class="col-md-10">
+            <input type="email" name="email" #email="ngModel" [(ngModel)]="contact.email"
+              class="form-control {{hasSameError('email')? 'btn-danger':''}}" placeholder="Email" required email>
+            <div *ngIf="email.touched && email.invalid" class="alert alert-danger">
+              <div *ngIf="email.errors.required">Email is required.</div>
+              <div *ngIf="email.errors.email">Please, Enter valid email address.</div>
+            </div>
+          </div>
+        </div>
+        <!-- input telephone block -->
+        <div class="form-group row required mt-2">
+          <label class="col-md-2 text-md-right">Telephone</label>
+          <div class="col-md-10">
+            <input type="text" name="phone" #phone="ngModel" [(ngModel)]="contact.phone"
+              class="form-control {{hasSameError('phone')? 'btn-danger':''}}" placeholder="Telephone" required
+              pattern="^\+?[0-9\uff10-\uff19]*">
+            <div *ngIf="phone.touched && phone.invalid" class="alert alert-danger">
+              <div *ngIf="phone.errors.required">Telephone is required.</div>
+              <div *ngIf="phone.errors.pattern">Please, Enter valid telephone number.</div>
+            </div>
+          </div>
+        </div>
+        <!-- calcel and save button -->
+        <div class="mt-2 float-right d-none d-md-block">
+          <button class="btn btn-light text-danger" type="button" (click)="cancel()"><i
+              class="fas fa-times mr-md-2"></i>Cancel</button>
+          <button class="btn btn-success ml-2" type="submit"
+            [disabled]="!contactForm.form.valid || hasSameError('phone') || hasSameError('email')"><i
+              class="far fa-save mr-md-2"></i>Save</button>
+        </div>
+        <!-- responsive design for cancel and save button -->
+        <div class="mt-2 text-center d-md-none">
+          <button class="btn btn-sm btn-light text-danger" type="button" (click)="cancel()"><i
+              class="fas fa-times mr-1"></i>Cancel</button>
+          <button class="btn btn-sm btn-success ml-2" type="submit"
+            [disabled]="!contactForm.form.valid || hasSameError('phone') || hasSameError('email')"><i
+              class="far fa-save mr-1"></i>Save</button>
+        </div>
+      </form>
+    </div>
+  </div>
 </div>

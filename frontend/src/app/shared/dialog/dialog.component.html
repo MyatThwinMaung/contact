@@ -1,9 +1,9 @@
 <!-- Modal Title -->
 <div class="modal-header">
-	<h4 class="modal-title d-none d-md-block">{{title}}</h4>
-	<!-- responsive title -->
-	<h4 class="modal-sm-title d-md-none">{{title}}</h4>
-	<button type="button" class="close" (click)="onCancel()">&times;</button>
+  <h4 class="modal-title d-none d-md-block">{{title}}</h4>
+  <!-- responsive title -->
+  <h4 class="modal-sm-title d-md-none">{{title}}</h4>
+  <button type="button" class="close" (click)="onCancel()">&times;</button>
 </div>
 
 <!-- Modal iInformaton -->
@@ -11,16 +11,15 @@
 
 <!-- Modal Action -->
 <div class="modal-footer">
-	<div class="d-none d-md-block">
-		<button type="button" class="btn btn-danger" (click)="onConfirm()" *ngIf="isConfirmModal">Confirm</button>
-		<button type="button" class="btn {{isConfirmModal? 'btn-light': 'btn-primary'}} ml-2"
-			(click)="onCancel()">{{closeBtnName}}</button>
-	</div>
-	<!-- responsive design for cancel and save button -->
-	<div class="d-md-none">
-		<button type="button" class="btn btn-sm btn-danger" (click)="onConfirm()"
-			*ngIf="isConfirmModal">Confirm</button>
-		<button type="button" class="btn btn-sm {{isConfirmModal? 'btn-light': 'btn-primary'}} ml-2"
-			(click)="onCancel()">{{closeBtnName}}</button>
-	</div>
+  <div class="d-none d-md-block">
+    <button type="button" class="btn btn-danger" (click)="onConfirm()" *ngIf="isConfirmModal">Confirm</button>
+    <button type="button" class="btn {{isConfirmModal? 'btn-light': 'btn-primary'}} ml-2"
+      (click)="onCancel()">{{closeBtnName}}</button>
+  </div>
+  <!-- responsive design for cancel and save button -->
+  <div class="d-md-none">
+    <button type="button" class="btn btn-sm btn-danger" (click)="onConfirm()" *ngIf="isConfirmModal">Confirm</button>
+    <button type="button" class="btn btn-sm {{isConfirmModal? 'btn-light': 'btn-primary'}} ml-2"
+      (click)="onCancel()">{{closeBtnName}}</button>
+  </div>
 </div>

@@ -3,15 +3,13 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
+import { environment } from '../../environments/environment';
 import { Contact } from './contact';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
-
-  private apiURL = "http://localhost:3000/";
-
   httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -24,7 +22,7 @@ export class ContactService {
    * GET /contacts/
    */
   getAll(): Observable<Contact[]> {
-    return this.httpClient.get<Contact[]>(this.apiURL + 'contacts/')
+    return this.httpClient.get<Contact[]>(environment.apiURL + 'contacts/')
       .pipe(
         catchError(this.errorHandler)
       )
@@ -35,7 +33,7 @@ export class ContactService {
    * @param contact
    */
   create(contact): Observable<Contact> {
-    return this.httpClient.post<Contact>(this.apiURL + 'contacts/', JSON.stringify(contact), this.httpOptions)
+    return this.httpClient.post<Contact>(environment.apiURL + 'contacts/', JSON.stringify(contact), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
@@ -46,7 +44,7 @@ export class ContactService {
    * @param id
    */
   find(id): Observable<Contact> {
-    return this.httpClient.get<Contact>(this.apiURL + 'contacts/' + id)
+    return this.httpClient.get<Contact>(environment.apiURL + 'contacts/' + id)
       .pipe(
         catchError(this.errorHandler)
       )
@@ -58,7 +56,7 @@ export class ContactService {
    * @param contact
    */
   update(id, contact): Observable<Contact> {
-    return this.httpClient.put<Contact>(this.apiURL + 'contacts/' + id, JSON.stringify(contact), this.httpOptions)
+    return this.httpClient.put<Contact>(environment.apiURL + 'contacts/' + id, JSON.stringify(contact), this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
@@ -69,7 +67,7 @@ export class ContactService {
    * @param id
    */
   delete(id) {
-    return this.httpClient.delete<Contact>(this.apiURL + 'contacts/' + id, this.httpOptions)
+    return this.httpClient.delete<Contact>(environment.apiURL + 'contacts/' + id, this.httpOptions)
       .pipe(
         catchError(this.errorHandler)
       )
