@@ -9,7 +9,7 @@
 			Contact</button>
 	</div>
 	<!-- table of contact list -->
-	<div *ngIf="contactData.length > 0;else noContact" class="bg-white">
+	<div *ngIf="contacts.length > 0;else noContact" class="bg-white">
 		<table class="table border table-hover table-responsive-sm">
 			<tbody>
 				<tr class="row m-0" *ngFor="let contact of contactData">

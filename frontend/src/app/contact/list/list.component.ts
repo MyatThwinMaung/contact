@@ -13,6 +13,7 @@ import { Contact } from '../contact';
 })
 export class ListComponent implements OnInit {
 
+  // stored contacts from api
   contacts: Contact[] = [];
   searchedContacts: Contact[] = [];
   // contacts to bind in table after pagination

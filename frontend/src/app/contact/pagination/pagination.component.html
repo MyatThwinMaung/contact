@@ -1,11 +1,11 @@
 <ul class="pagination m-0 d-none d-md-flex" *ngIf="total > 0">
 	<li class="page-item" (click)="onPage(1)" [disabled]="current===1">
 		<span class="page-link">
-			<<< /span>
+			<< </span>
 	</li>
 	<li class="page-item" (click)="onPrev()" [disabled]="current===1">
 		<span class="page-link">
-			<< /span>
+			< </span>
 	</li>
 	<li class="page-item {{pageNum.toString()===current.toString()? 'active':''}}" *ngFor="let pageNum of getPages()"
 		(click)="onPage(pageNum)">
@@ -23,11 +23,11 @@
 <ul class="pagination pagination-sm d-md-none m-0" *ngIf="total > 0">
 	<li class="page-item" (click)="onPage(1)" [disabled]="current===1">
 		<span class="page-link">
-			<<< /span>
+			<< </span>
 	</li>
 	<li class="page-item" (click)="onPrev()" [disabled]="current===1">
 		<span class="page-link">
-			<< /span>
+			< </span>
 	</li>
 	<li class="page-item {{pageNum.toString()===current.toString()? 'active':''}}" *ngFor="let pageNum of getPages()"
 		(click)="onPage(pageNum)">

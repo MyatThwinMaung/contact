@@ -55,12 +55,8 @@ export class PaginationComponent implements OnInit {
 
   getPages(): number[] {
     const pages: number[] = [];
-    if (typeof this.current === 'string') {
-      this.current = parseInt(this.current, 10);
-    }
-    if (typeof this.pagesToShow === 'string') {
-      this.pagesToShow = parseInt(this.pagesToShow, 10);
-    }
+    this.current = Number(this.current);
+    this.pagesToShow = Number(this.pagesToShow);
     if (this.pagesToShow < 8) {
       for (let p = 1; p <= this.pagesToShow; p++) {
         pages.push(p);
